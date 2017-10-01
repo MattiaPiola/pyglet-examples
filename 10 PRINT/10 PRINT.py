@@ -6,7 +6,7 @@ window.set_caption('PRINT 10')
 
 
 def randomic():
-    casual = randint(0, 1)
+    casual = randint(1, 6)
     return casual
 
 
@@ -19,12 +19,31 @@ class Pencil:
     def draw_maze(self):
         while self.y_offset <= window.height:
             lor = randomic()
-            if lor == 0:
-                pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset, self.y_offset, self.x_offset + self.size,
-                                                               self.y_offset + self.size)))
-            elif lor == 1:
+            # 1st case: diagonal line bottom-left to top-right
+            if lor == 1:
+                pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset, self.y_offset,
+                                                               self.x_offset + self.size, self.y_offset + self.size)))
+            # 2nd case: diagonal line top-left to bottom-right
+            elif lor == 2:
                 pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset, self.y_offset + self.size,
                                                                self.x_offset + self.size, self.y_offset)))
+            # 3rd case: horizontal line on the bottom
+            elif lor == 3:
+                pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset, self.y_offset,
+                                                               self.x_offset + self.size, self.y_offset)))
+            # 4th case: horizontal line on the top
+            elif lor == 4:
+                pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset, self.y_offset + self.size,
+                                                               self.x_offset + self.size, self.y_offset + self.size)))
+            # 5th case: vertical line on the left
+            elif lor == 5:
+                pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset, self.y_offset,
+                                                               self.x_offset, self.y_offset + self.size)))
+            # 6th case: vertical line on the right
+            elif lor == 6:
+                pyg.graphics.draw(2, pyg.gl.GL_LINES, ('v2i', (self.x_offset + self.size, self.y_offset,
+                                                               self.x_offset + self.size, self.y_offset + self.size)))
+
             if self.x_offset < window.width:
                 self.x_offset += self.size
             else:
