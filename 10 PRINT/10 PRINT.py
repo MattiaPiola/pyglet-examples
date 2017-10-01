@@ -4,16 +4,16 @@ from random import randint
 window = pyg.window.Window(width=1000,height=600)
 
 def randomic():
-    casuale = randint(0,1)
-    return casuale
+    casual = randint(0,1)
+    return casual
 
-class Matita():
+class Pencil():
     def __init__(self):
         self.x_offset = 0
         self.y_offset = 0
-        self.size = 15
+        self.size = 10
         
-    def disegna(self):
+    def draw_maze(self):
         while self.y_offset <= window.height:
             lor = randomic()
             if lor == 0:
@@ -26,8 +26,12 @@ class Matita():
                 self.x_offset = 0
                 self.y_offset += self.size
 
+
+
 @window.event
-def on_draw():
-    Matita().disegna()
+def on_mouse_press(x,y,button,modifiers):
+    window.clear()
+    Pencil().draw_maze()
+
 
 pyg.app.run()
