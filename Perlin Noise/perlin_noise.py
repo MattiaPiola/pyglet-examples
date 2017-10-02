@@ -31,8 +31,8 @@ def on_draw():
 @window.event()
 def on_mouse_press(x, y, button, modifiers):
     for column in colorsss:
-    	for point in column:
-        	pyg.graphics.draw(1, pyg.gl.GL_POINTS, (point[0]), (point[1]))
+        for point in column:
+            pyg.graphics.draw(1, pyg.gl.GL_POINTS, (point[0]), (point[1]))
 
     #pyg.image.get_buffer_manager().get_color_buffer().save('perlin_screenshot.png')
 
