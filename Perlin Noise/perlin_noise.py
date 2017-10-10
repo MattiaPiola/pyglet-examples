@@ -11,9 +11,9 @@ colorsss = []
 
 def calculate_perlin(p_list):
     rate = 250
-    for y in range(window.height):
+    for y in range(window.height+1):
         column = []
-        for x in range(window.width):
+        for x in range(window.width+1):
             x_coord = x/rate+1901
             y_coord = y/rate+1901
             point = [('v2f', (x, y)), ("c3f", (noisee.noise2(x_coord, y_coord),
