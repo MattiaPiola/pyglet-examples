@@ -38,7 +38,7 @@ def on_mouse_press(x, y, button, modifiers):
     Pencil().draw_maze()
 
     # Optional line to export a screenshot.
-    # pyg.image.get_buffer_manager().get_color_buffer().save('print10_screenshot.png')
+    pyg.image.get_buffer_manager().get_color_buffer().save('print10_screenshot.png')
 
 
 pyg.app.run()
